@@ -3,31 +3,28 @@ package GameObjects;
 public class Board {
     //board information is saved in a 2D array of chars.
 	private Side[][] playBoard;
-	private int row;
-	private int col;
+	private int size;
 	/***************************
 	 * Function name: Board
-	 * Arguments: row and col counts
+	 * Arguments: size for board size.
 	 * The Function operation : builder. allocates the reversi board according
-	 * to user's choice or rows and columns count. set's all the slots as EMPTY
-	 * except for the central four.
+	 * to user's choice of size. set's all the slots as EMPTY except for the central four.
 	 ***************************/
-	public Board(int row, int col) {
-		this.row = row;
-		this.col = col;
+	public Board(int size) {
+		this.size = size;
 	    int i,j;
-	    playBoard = new Side [row][col];
+	    playBoard = new Side [size][size];
 	    //first we will set all array slots as EMPTY (empty slots will be
 	    // represented as ' ' to maintain the board's shape.
-	    for (i = 0; i < row; i++) {
-	        for (j = 0; j < col; j++) {
+	    for (i = 0; i < size; i++) {
+	        for (j = 0; j < size; j++) {
 	            playBoard[i][j] = Side.EMPTY;
 	        }
 	    }
-	    playBoard[row/2 - 1][col/2 - 1] = Side.WHITE;
-	    playBoard[row/2][col/2] = Side.WHITE;
-	    playBoard[row/2 - 1][col/2] = Side.BLACK;
-	    playBoard[row/2][col/2 - 1] = Side.BLACK;
+	    playBoard[size/2 - 1][size/2 - 1] = Side.WHITE;
+	    playBoard[size/2][size/2] = Side.WHITE;
+	    playBoard[size/2 - 1][size/2] = Side.BLACK;
+	    playBoard[size/2][size/2 - 1] = Side.BLACK;
 	}
     /****************************
      * Function name: get(i, j)
@@ -38,20 +35,12 @@ public class Board {
 		return this.playBoard[row][col];
 	}
     /****************************
-     * Function name: getRow
+     * Function name: size
      * A getter functions
-     * @return the rows number.
+     * @return the size.
      ******************************/
-	public int getRow() {
-	    return row;
-	}
-    /****************************
-     * Function name: getCol
-     * A getter functions
-     * @return the columns number.
-     ******************************/
-	public int getCol() {
-	    return col;
+	public int size() {
+	    return this.size;
 	}
 	/******************************************
 	* function name: set()
@@ -59,8 +48,8 @@ public class Board {
 	* The function operation: this is a setter function for playBoard[row][col].
 	******************************************/
 	public void set(int row, int col, Side s) {
-		if ((row >= 0) && (row < this.row) &&
-				(col >= 0) && (col < this.col))
+		if ((row >= 0) && (row < this.size) &&
+				(col >= 0) && (col < this.size))
 			playBoard[row][col] = s;
 	}
 	/***********************

@@ -3,37 +3,35 @@ package application;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import GameObjects.Board;
+import GameObjects.GameSession;
+import GameObjects.Side;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 public class GameController implements Initializable {
 	 @FXML
-	 private HBox boardRoot;
-	 private Board board;
-	 
-	 public GameController() {
-		this.board = new Board(8, 8);
-	 }
+	 private HBox root;
 	 
 	 @Override
 	 public void initialize(URL location, ResourceBundle resources) {
-		 DrowBoard mazeBoard = new DrowBoard(this.board);
-		 mazeBoard.setPrefWidth(400);
-		 mazeBoard.setPrefHeight(400);
-		 boardRoot.getChildren().add(0, mazeBoard);
-		 mazeBoard.draw();
-		 boardRoot.widthProperty().addListener((observable, oldValue, newValue) -> {
-			 double boardNewWidth = newValue.doubleValue() - 200;
-			 mazeBoard.setPrefWidth(boardNewWidth);
-			 mazeBoard.draw();
+		 // create DrowGame
+		 DrowGame dg = new DrowGame(new GameSession(8, Side.BLACK, Color.BLACK, Color.WHITE));
+		 dg.setSpacing(10);
+		 // set preferred size values
+		 dg.setPrefWidth(600);
+		 dg.setPrefHeight(400);
+		 root.getChildren().add(0, dg);
+		 dg.draw();
+		 // set new size values after size window changed
+		 root.widthProperty().addListener((observable, oldValue, newValue) -> {
+			 dg.setPrefWidth(newValue.doubleValue());
+			 dg.draw();
 			 });
-		 boardRoot.heightProperty().addListener((observable, oldValue, newValue) -> {
-			 mazeBoard.setPrefHeight(newValue.doubleValue());
-			 mazeBoard.draw();
+		 root.heightProperty().addListener((observable, oldValue, newValue) -> {
+			 dg.setPrefHeight(newValue.doubleValue());
+			 dg.draw();
 		 });
 	 }
 }

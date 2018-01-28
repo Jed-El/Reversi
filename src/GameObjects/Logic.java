@@ -16,19 +16,19 @@ public class Logic {
 			case up:
 				return (i - r >= 0);
 			case down:
-				return (i + r < board.getRow());
+				return (i + r < board.size());
 			case left:
 				return (j - r >= 0);
 			case right:
-				return (j + r < board.getCol());
+				return (j + r < board.size());
 			case downleft:
-				return (i + r < board.getRow()) && (j - r >= 0);
+				return (i + r < board.size()) && (j - r >= 0);
 			case downright:
-				return (i + r < board.getRow()) && (j + r < board.getCol());
+				return (i + r < board.size()) && (j + r < board.size());
 			case upleft:
 				return (i - r >= 0) && (j - r >= 0);
 			case upright:
-				return (i - r >= 0) && (j + r < board.getCol());
+				return (i - r >= 0) && (j + r < board.size());
 			default:
 				return false;
 		}	
@@ -113,8 +113,8 @@ public class Logic {
      ********************/
 	public ArrayList<Move> allowedActions(Board board, Side s) {
 		ArrayList<Move> moves = new ArrayList<Move>();
-		for (int i = 0; i < board.getRow(); i++) {
-			for (int j = 0; j < board.getCol(); j++) {
+		for (int i = 0; i < board.size(); i++) {
+			for (int j = 0; j < board.size(); j++) {
 				Move m = checkAction(board, s, i, j);
 				if (m != null)
 					moves.add(m);

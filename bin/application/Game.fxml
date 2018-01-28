@@ -3,13 +3,5 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <HBox xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="application.GameController" fx:id="boardRoot" spacing="10">
-<VBox spacing="10">
-<Label text="Current player: "
-GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-<Label text="Black player score: "
-GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-<Label text="White player score: "
-GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-</VBox>
+fx:controller="application.GameController" fx:id="root" spacing="50">
 </HBox>
