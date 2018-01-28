@@ -56,7 +56,7 @@ public class DrowGame extends HBox {
 		 // find the fitting size values to the tiles
 		 int size = this.game.getBoard().size(),
 				 cellHeight = (int)this.getPrefHeight() / size,
-				 cellWidth = ((int)this.getPrefWidth() - 200) / size;
+				 cellWidth = ((int)this.getPrefWidth() - 150) / size;
 		 Tile[][] t = new Tile[size][size];
 		 for (int i = 0; i < size; i++) {
 			 for (int j = 0; j < size; j++) {

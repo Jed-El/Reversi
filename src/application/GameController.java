@@ -20,7 +20,7 @@ public class GameController implements Initializable {
 		 DrowGame dg = new DrowGame(new GameSession(8, Side.BLACK, Color.BLACK, Color.WHITE));
 		 dg.setSpacing(10);
 		 // set preferred size values
-		 dg.setPrefWidth(600);
+		 dg.setPrefWidth(550);
 		 dg.setPrefHeight(400);
 		 root.getChildren().add(0, dg);
 		 dg.draw();
