@@ -63,10 +63,14 @@ public class GameSettings implements Serializable{
 	}
 	/**
 	 * first player getter.
-	 * @return string first 
+	 * @return the open Side  
 	 */
-	public String getFirst() {
-		return this.first;
+	public Side getFirst() {
+		if (this.first.equals("BLACK"))
+		return Side.BLACK;
+		if (this.first.equals("WHITE"))
+			return Side.WHITE;
+		return Side.BLACK;
 	}
 	/**
 	 * first player setter.
@@ -120,7 +124,7 @@ public class GameSettings implements Serializable{
             objectinputstream = new ObjectInputStream(streamIn);
             GameSettings loaded = (GameSettings) objectinputstream.readObject();
             this.size = loaded.getSize();
-            this.first = loaded.getFirst();
+            this.first = loaded.getFirst().toString();
             this.setColor1(loaded.getColor1());
             this.setColor2(loaded.getColor2());
         } catch (Exception e) {

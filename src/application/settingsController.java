@@ -14,9 +14,9 @@ import javafx.scene.control.ColorPicker;
 import javafx.stage.Stage;
 
 
-public class settingsController {
+public class SettingsController {
 	//our starter options
-	ObservableList<String> whoWillStart = FXCollections.observableArrayList("Black","White");
+	ObservableList<String> whoWillStart = FXCollections.observableArrayList("BLACK","WHITE");
 	//our board square size
 	ObservableList<Integer> boardSizes = FXCollections.observableArrayList(4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
 	@FXML
@@ -42,7 +42,7 @@ public class settingsController {
             //loading our configurations from file.
             GameSettings config = GameSettings.loadFromFile(path);
             //loading our saved values into our current Gamesettings.
-            firstPlayer.setValue(config.getFirst());
+            firstPlayer.setValue(config.getFirst().toString());
             firstPlayer.setItems(whoWillStart);
             p1C.setValue(config.getColor1());
             p2C.setValue(config.getColor2());
