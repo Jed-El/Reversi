@@ -15,6 +15,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -37,21 +38,21 @@ public class GameController implements Initializable {
 	 private void setMenuBar() {
 		MenuBar menuBar = new MenuBar();
 		Menu settings = new Menu("Settings");
+	    MenuItem set = new MenuItem("Settings");
 		// Add an open setting window event
-		settings.setOnAction(actionEvent -> {
+		set.setOnAction(actionEvent -> {
 	        try {
 	        	Parent sRoot = FXMLLoader.load(getClass().getClassLoader().getResource("settings.fxml"));
-	            Scene newScene = new Scene(sRoot, 450, 450);
-	            newScene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-	            Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+	            Stage stage = new Stage();
 	            stage.setTitle("Settings");
-	            stage.setScene(newScene);
+	            stage.setScene(new Scene(sRoot, 450, 450));
 	            stage.show();
 	        }
 	        catch (IOException e) {
 	            e.printStackTrace();
 	        }
 		});
+		settings.getItems().add(set);
 		menuBar.getMenus().add(settings);
 		root.getChildren().add(0, menuBar);
 	}
