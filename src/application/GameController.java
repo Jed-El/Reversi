@@ -10,7 +10,6 @@ import GameObjects.GameSettings;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Menu;
@@ -42,10 +41,12 @@ public class GameController implements Initializable {
 		// Add an open setting window event
 		set.setOnAction(actionEvent -> {
 	        try {
-	        	Parent sRoot = FXMLLoader.load(getClass().getClassLoader().getResource("settings.fxml"));
+	        	Parent sRoot = FXMLLoader.load(getClass().getResource("settings2.fxml"));
+	        	Scene scene = new Scene(sRoot, 450, 450);
+				scene.getStylesheets().add(getClass().getResource("settings.css").toExternalForm());
 	            Stage stage = new Stage();
 	            stage.setTitle("Settings");
-	            stage.setScene(new Scene(sRoot, 450, 450));
+	            stage.setScene(scene);
 	            stage.show();
 	        }
 	        catch (IOException e) {
