@@ -61,7 +61,8 @@ public class DrawGame extends HBox {
 		 for (int i = 0; i < size; i++) {
 			 for (int j = 0; j < size; j++) {
 				// create a tile according to the fitting tile in the board
-				t[i][j] = new Tile(this.game.getBoard().get(i, j), cellWidth, cellHeight);
+				t[i][j] = new Tile(this.game.sideColor(this.game.getBoard().get(i, j)),
+						cellWidth, cellHeight);
 				// set event on mouse click the tile
 				t[i][j].setOnMouseClicked(event(bg, t[i][j]));
 				// add the tile to the grid

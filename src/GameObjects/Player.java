@@ -12,7 +12,7 @@ public class Player {
 	 * @param color the Player Color.
      *********************/
 	public Player (Side side, Color color) {
-		this.side =side;
+		this.side = side;
 		this.color = color;
 		this.score = 2;
 	}

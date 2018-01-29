@@ -1,6 +1,5 @@
 package application;
 
-import GameObjects.Side;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
@@ -11,13 +10,13 @@ public class Tile extends StackPane {
 	private int height;
 	private int width;
 	
-    public Tile(Side s, int cellWidth, int cellHeight) {
+    public Tile(Color c, int cellWidth, int cellHeight) {
     	this.width = cellWidth;
     	this.height = cellHeight;
-    	set(s);
+    	set(c);
     }
     	
-    public void set(Side s) {
+    public void set(Color c) {
         getChildren().clear();
 
     	Rectangle r = new Rectangle(width, height);
@@ -26,13 +25,8 @@ public class Tile extends StackPane {
 		
         getChildren().add(r);
         
-        if (s == Side.EMPTY)
+        if (c == null)
         	return;
-        Color c = null;
-        if (s == Side.BLACK)
-        	c = Color.BLACK;
-        if (s == Side.WHITE)
-        	c = Color.WHITE;
         
         Ellipse bg = new Ellipse(width * 0.38, height * 0.32);
         bg.setFill(Color.GREY);

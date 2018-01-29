@@ -49,6 +49,19 @@ public class GameSession {
 		return null;
 	}
     /**********************
+	 * A getter function Color by Side.
+	 * @param s a Side for the Color.
+	 * @return Color of black / white Player.
+	 * function Operation: this function returns a Color according to the given Side.
+     *********************/
+	public Color sideColor(Side s) {
+		if (s == Side.BLACK)
+			return this.black.getColor();
+		if (s == Side.WHITE)
+			return this.white.getColor();
+		return null;
+	}
+    /**********************
 	 * Getter function for current Player.
 	 * @return current.
      *********************/

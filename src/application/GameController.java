@@ -41,7 +41,7 @@ public class GameController implements Initializable {
 		// Add an open setting window event
 		set.setOnAction(actionEvent -> {
 	        try {
-	        	Parent sRoot = FXMLLoader.load(getClass().getResource("settings2.fxml"));
+	        	Parent sRoot = FXMLLoader.load(getClass().getResource("settings.fxml"));
 	        	Scene scene = new Scene(sRoot, 450, 450);
 				scene.getStylesheets().add(getClass().getResource("settings.css").toExternalForm());
 	            Stage stage = new Stage();
